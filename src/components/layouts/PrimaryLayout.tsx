@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { ReactElement, useState } from "react";
 import PrimaryLogo from "../icons/PrimaryLogo";
 import MenuIcon from "@mui/icons-material/Menu";
+import PrimaryFooter from "./PrimaryFooter";
 
 interface PrimaryLayoutProps {
   children: ReactElement;
@@ -22,12 +23,19 @@ const Wrapper = styled(Box)(({ theme }) => ({
   flexDirection: "column",
 }));
 
-const Header = styled(Box)(({ theme }) => ({
-  maxWidth: "1444px",
+const HeaderWrapper = styled(Box)(({ theme }) => ({
+  width: "100%",
   display: "flex",
+  justifyContent: "center",
   boxShadow:
     "0px 21px 80px rgba(122, 117, 117, 0.05), 0px 2.62953px 10.0172px rgba(122, 117, 117, 0.025)",
-  padding: "25px 126px 25px 172px",
+}));
+
+const Header = styled(Box)(({ theme }) => ({
+  maxWidth: "1444px",
+  width: "100%",
+  display: "flex",
+  padding: "25px 126px",
   alignItems: "center",
   justifyContent: "space-between",
 
@@ -37,16 +45,6 @@ const Header = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("md")]: {
     padding: "25px",
-  },
-}));
-
-const HeaderRight = styled(Box)(({ theme }) => ({
-  display: "flex",
-  gap: "33px",
-  alignItems: "center",
-
-  [theme.breakpoints.down("md")]: {
-    gap: "15px",
   },
 }));
 
@@ -77,6 +75,8 @@ const Tab = styled(Link)<TabProps>(({ theme, isSelected }) => ({
 const Content = styled(Box)(({ theme }) => ({
   width: "100%",
   display: "flex",
+  flexDirection: "column",
+  flex: 1,
 }));
 
 const MuiDrawer = styled(Drawer)(({ theme }) => ({
@@ -153,18 +153,21 @@ const PrimaryLayout = ({ children }: PrimaryLayoutProps) => {
       >
         <DrawerContainer>{getTabs()}</DrawerContainer>
       </MuiDrawer>
-      <Header>
-        <PrimaryLogo />
-        <LargeSrceenTabsContainer>{getTabs()}</LargeSrceenTabsContainer>
-        <DrawerButton onClick={() => setIsDrawerOpen(true)}>
-          <MenuIcon
-            color="inherit"
-            fontSize="inherit"
-            sx={{ cursor: "pointer" }}
-          />
-        </DrawerButton>
-      </Header>
+      <HeaderWrapper>
+        <Header>
+          <PrimaryLogo />
+          <LargeSrceenTabsContainer>{getTabs()}</LargeSrceenTabsContainer>
+          <DrawerButton onClick={() => setIsDrawerOpen(true)}>
+            <MenuIcon
+              color="inherit"
+              fontSize="inherit"
+              sx={{ cursor: "pointer" }}
+            />
+          </DrawerButton>
+        </Header>
+      </HeaderWrapper>
       <Content>{children}</Content>
+      <PrimaryFooter />
     </Wrapper>
   );
 };
