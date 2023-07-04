@@ -250,7 +250,7 @@ const PrimaryFooter = () => {
                   <LocationDetailsContainer>
                     <LocationDetailText>{location.address}</LocationDetailText>
                     <LocationDetailText>{location.phone}</LocationDetailText>
-                    <LocationDetailText>{location.phone}</LocationDetailText>
+                    <LocationDetailText>{location.phone2}</LocationDetailText>
                   </LocationDetailsContainer>
                 </LocationContainer>
               ))}
@@ -298,7 +298,7 @@ const PrimaryFooter = () => {
           </SectionContainer>
         </BottomWrapper>
         <CopyrightText>
-          copyright Cletasoftwaresolution. All right reserved
+          Copyright Arcompsol. All right reserved
         </CopyrightText>
       </Container>
     </Wrapper>

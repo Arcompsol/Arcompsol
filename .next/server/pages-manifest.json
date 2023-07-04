@@ -2,9 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/about": "pages/about.html",
-  "/api/hello": "pages/api/hello.js",
-  "/careers": "pages/careers.html",
-  "/": "pages/index.html",
-  "/404": "pages/404.html"
+  "/": "pages/index.js",
+  "/careers": "pages/careers.js"
 }
