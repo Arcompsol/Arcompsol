@@ -130,19 +130,44 @@ const PrimaryLayout = ({ children }: PrimaryLayoutProps) => {
     },
   ];
 
-  const getTabs = () => (
-    <>
-      {TABS.map((tab) => (
-        <Tab
-          isSelected={router.pathname === tab.route}
-          key={tab.route}
-          href={tab.route}
-        >
-          {tab.label}
-        </Tab>
-      ))}
-    </>
-  );
+  const getTabs = () => {
+    const router = useRouter();
+    
+    return (
+      <>
+        {TABS.map((tab) => {
+          if (tab.route.startsWith('#')) {
+            return (
+              // <ScrollLink
+              //   key={tab.route}
+              //   to={tab.route.substring(1)} // Remove the "#" from the route
+              //   spy={true}
+              //   smooth={true}
+              //   duration={800}
+              //   offset={-100} // Adjust the offset as needed
+              // >
+                <Tab isSelected={router.asPath === tab.route}
+                href={tab.route}
+                >
+                  {tab.label}
+                </Tab>
+            );
+          } else {
+            return (
+              <Tab
+                isSelected={router.pathname === tab.route}
+                key={tab.route}
+                href={tab.route}
+              >
+                {tab.label}
+              </Tab>
+            );
+          }
+        })}
+      </>
+    );
+  };
+  
 
   return (
     <Wrapper>

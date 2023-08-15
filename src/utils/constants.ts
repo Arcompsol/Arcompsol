@@ -3,7 +3,7 @@ export const ROUTES = {
   SERVICES: "/services",
   CAREERS: "/careers",
   ABOUT: "/about",
-  LETS_TALK: "/lets-talk",
+  LETS_TALK: "#contact-form",
 };
 
 export const FOOTER_SECTIONS = [

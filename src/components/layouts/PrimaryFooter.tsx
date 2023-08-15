@@ -256,7 +256,7 @@ const PrimaryFooter = () => {
               ))}
             </UpperLeftBottomContainer>
           </UpperLeftContainer>
-          <Form>
+          <Form id="contact-form">
             <InputField type={"text"} placeholder="Name" />
             <InputField type={"email"} placeholder="Email Address" />
             <InputField type={"text"} placeholder="Mobile No" />
