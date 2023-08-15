@@ -7,7 +7,11 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { Facebook } from "@mui/icons-material";
+import CircularProgress from '@mui/material/CircularProgress';
+
 import FacebookIcon from "../icons/FacebookIcon";
+import axios from "axios";
+import { useState } from "react";
 
 const Wrapper = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -237,6 +241,31 @@ const SocialIconsContainer = styled(Box)(({ theme }) => ({
 }));
 
 const PrimaryFooter = () => {
+
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [body, setBody] = useState('')
+
+  const [disable , setDisable] = useState(false)
+  const handleSend = async ()=>{
+    
+    try {
+      setDisable(true)
+      const response = await axios.post('/api/email',{
+        email,
+        subject,
+        body,
+      })
+      setDisable(false)
+      setEmail('')
+      setBody('')
+      setSubject('')
+      
+    } catch (err) {
+      setDisable(false)
+      console.error(err)
+    }
+  }
   return (
     <Wrapper>
       <Container>
@@ -258,15 +287,20 @@ const PrimaryFooter = () => {
           </UpperLeftContainer>
           <Form id="contact-form">
             <InputField type={"text"} placeholder="Name" />
-            <InputField type={"email"} placeholder="Email Address" />
+            <InputField type={"email"} onChange={(e)=> setEmail(e.target.value)} placeholder="Email Address" />
             <InputField type={"text"} placeholder="Mobile No" />
-            <InputField type={"text"} placeholder="Why are you interested" />
+            <InputField type={"text"} onChange={(e)=> setSubject(e.target.value)} placeholder="Why are you interested" />
             <MultilineInput
               multiline
               rows={4}
+              onChange={(e)=> setBody(e.target.value)}
               placeholder="Let us know your project about!"
             />
-            <LetsTalkButton variant="secondary">{"Let's Talk"}</LetsTalkButton>
+            <LetsTalkButton onClick={handleSend}  variant="secondary" disabled={disable}>
+              { !disable ? 
+              "Let's Talk" :
+              <CircularProgress/> }
+            </LetsTalkButton>
           </Form>
         </UpperContainer>
         <BottomWrapper>
