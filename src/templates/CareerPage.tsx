@@ -9,6 +9,8 @@ import TitleBlue from "@/components/genericComponents/TitleBlue";
 import DescriptionBlue from "@/components/genericComponents/DescriptionBlue";
 import GenericCard from "@/components/genericComponents/GenericCard";
 import BenefitsCarousel from "@/components/genericComponents/GenericCarousel";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const ImageWrapper = styled(Box)(({ theme }) => ({
   position: "relative",
@@ -225,17 +227,45 @@ const BenefitsTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const CareerPage = () => {
+  const router = useRouter();
+
+
+  useEffect(() => {
+    if (router.query?.vision) {
+      const elm = document.getElementById('work-with-us')
+      if (elm) {
+        elm?.scrollIntoView({
+          behavior: 'smooth',
+        })
+        setTimeout(()=>{
+          router.replace('/careers')
+
+        }, 5000)
+      }
+
+    }
+  }, [router.query?.vision]);
+
+
   return (
     <>
       <Container>
         <Title title="Careers At Arcompsol" />
         <Heading>Be a Part Of Something Great</Heading>
         <Description desc="At Arcompsol, we believe in a flat hierarchy that is conducive for maximum growth for everyone working for us. If you are motivated by challenges and enjoy an environment that is dynamic, challenging and rewarding, we will always have a place for you." />
-        <ExploreOpportunitiesButton variant="primary">
+        <ExploreOpportunitiesButton variant="primary"
+        onClick={()=> {
+          const elm = document.getElementById('openings')
+          elm?.scrollIntoView(
+            {
+              behavior: 'smooth'
+            }
+          )
+        }}>
           Explore Opportunities
         </ExploreOpportunitiesButton>
       </Container>
-      <WantToWorkContainer>
+      <WantToWorkContainer id="work-with-us">
         <TitleBlue title="Want to work with us?" />
 
         <DescriptionBlue desc="You should have three qualities" />
@@ -252,7 +282,7 @@ const CareerPage = () => {
         <BenefitsTitle>Benefits</BenefitsTitle>
         <BenefitsCarousel carouselList={BENEFITS} />
       </BenefitsCarousalWrapper>
-      <OpeningsContainer>
+      <OpeningsContainer id="openings">
         <OpeningsTitle>Current Openings</OpeningsTitle>
         <OpeningsOuterWrappeer>
           <OpeningsWrappeer>

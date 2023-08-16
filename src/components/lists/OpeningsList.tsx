@@ -14,10 +14,10 @@ export const CURRENT_OPENINGS = [
         label: "Backend Engineer",
       },
       {
-        label: "Backend Engineer",
+        label: "Frontend Engineer",
       },
       {
-        label: "Backend Engineer",
+        label: "Fullstack Engineer",
       },
     ],
   },
@@ -25,13 +25,13 @@ export const CURRENT_OPENINGS = [
     heading: "Location",
     tabs: [
       {
-        label: "Bay Area or Remote",
+        label: "Remote",
       },
       {
-        label: "Bay Area or Remote",
+        label: "Remote",
       },
       {
-        label: "Bay Area or Remote",
+        label: "Remote",
       },
     ],
   },

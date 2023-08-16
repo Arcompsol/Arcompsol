@@ -195,7 +195,7 @@ const HomePage = () => {
     },
     {
       image: DevOpsImage,
-      title: "Dev Ops",
+      title: "DevOps",
       imageHeight: "190px",
       imageWidth: "246px",
     },
@@ -205,7 +205,7 @@ const HomePage = () => {
     <Fragment>
       <HomeHero />
       <GenericWrapper backgroundColor={theme.palette.common.white}>
-        <ServicesContainer>
+        <ServicesContainer id='services'>
           <ServicesTitle>Services we provide</ServicesTitle>
           <ServicesDescription>
             When it comes to design, our approach is simple: Everything is
@@ -232,10 +232,10 @@ const HomePage = () => {
         backgroundColor={theme.palette.common.white}
         circleColor={theme.palette.common.black}
       />
-      <BlogsCarousalWrapper>
+      {/* <BlogsCarousalWrapper>
         <BlogsTitle>Latest Blogs</BlogsTitle>
         <BlogsCarousel carouselList={BLOGSLIST} />
-      </BlogsCarousalWrapper>
+      </BlogsCarousalWrapper> */}
 
       <FeedbackCarousalWrapper>
         <FeedbackTitle>Client Testimonials</FeedbackTitle>

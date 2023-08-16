@@ -137,20 +137,11 @@ const PrimaryLayout = ({ children }: PrimaryLayoutProps) => {
       <>
         {TABS.map((tab) => {
           if (tab.route.startsWith('#')) {
+            if(router.pathname === '/careers' && tab.route === '#services') {
+                  return <a href={tab.route} style={{textDecoration: 'none', color: '#656161', display: 'none'}}>{tab.label}</a>
+            }
             return (
-              // <ScrollLink
-              //   key={tab.route}
-              //   to={tab.route.substring(1)} // Remove the "#" from the route
-              //   spy={true}
-              //   smooth={true}
-              //   duration={800}
-              //   offset={-100} // Adjust the offset as needed
-              // >
-                <Tab isSelected={router.asPath === tab.route}
-                href={tab.route}
-                >
-                  {tab.label}
-                </Tab>
+              <a href={tab.route} style={{textDecoration: 'none', color: '#656161'}}>{tab.label}</a>
             );
           } else {
             return (
@@ -192,7 +183,7 @@ const PrimaryLayout = ({ children }: PrimaryLayoutProps) => {
         </Header>
       </HeaderWrapper>
       <Content>{children}</Content>
-      <PrimaryFooter />
+      <PrimaryFooter/>
     </Wrapper>
   );
 };

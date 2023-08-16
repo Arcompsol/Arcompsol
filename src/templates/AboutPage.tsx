@@ -15,6 +15,7 @@ import { VALUES } from "@/utils";
 import GenericCard from "@/components/genericComponents/GenericCard";
 import MilestonesList from "@/components/lists/MilestonesList";
 import { theme } from "@/muiConfig/theme";
+import { useRouter } from "next/router";
 
 const Container = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -80,12 +81,22 @@ const QualitiesContainer = styled(Box)(({ theme }) => ({
 }));
 
 const AboutPage = () => {
+  const router = useRouter()
   return (
     <>
       <Container>
         <Title title="About Us" />
         <Description desc="At Arcompsol, we believe in a flat hierarchy that is conducive for maximum growth for everyone working for us. If you are motivated by challenges and enjoy an environment that is dynamic, challenging and rewarding, we will always have a place for you." />
-        <OurVisionButton variant="primary">Our Vision</OurVisionButton>
+        <OurVisionButton variant="primary"
+        onClick={()=> {
+          router.push(
+          {
+            pathname: '/careers', 
+            query: { vision: true},
+          })
+
+        }}
+        >Our Vision</OurVisionButton>
       </Container>
       <WhoWeAreContainer>
         <TitleBlue title="Who we are?" />

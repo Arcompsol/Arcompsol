@@ -11,8 +11,7 @@ import {
 import { WhiteLeftArrowIcon, RightArrowIcon } from "../icons/CarousalArrows";
 import Avatar from "@mui/material/Avatar";
 import Image from "next/image";
-import CLIENT from '../../assets/Lance_Kohler.jpeg'
-import VectorImg from "../../../public/images/vector.png";
+
 
 interface BlogPost {
   heading?: string;
@@ -173,7 +172,6 @@ const FeedbackCarousel = ({ carouselList }: CarouselProps) => {
   const items = carouselList.map((listItem, index) => {
     // Render two blog posts side by side
 
-    console.log("JEEJ",listItem);
     
     const nextIndex = (index + 1) % carouselList.length;
     const nextListItem = carouselList[nextIndex];

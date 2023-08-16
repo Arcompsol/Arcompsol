@@ -9,6 +9,23 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener("DOMContentLoaded", function() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                  anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                  });
+                });
+              });
+            `,
+          }}
+        />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"

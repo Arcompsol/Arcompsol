@@ -332,7 +332,7 @@ const PrimaryFooter = () => {
           </SectionContainer>
         </BottomWrapper>
         <CopyrightText>
-          copyright Cletasoftwaresolution. All right reserved
+        @Copyright to Arcompsol Private Limited
         </CopyrightText>
       </Container>
     </Wrapper>

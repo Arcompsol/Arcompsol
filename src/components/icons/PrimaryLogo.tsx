@@ -25,7 +25,7 @@ const Title = styled(Typography)(({ theme }) => ({
   fontSize: "27px",
 
   [theme.breakpoints.down("md")]: {
-    fontSize: "20px",
+    fontSize: "24px",
   },
 }));
 

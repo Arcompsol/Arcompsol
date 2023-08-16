@@ -1,6 +1,6 @@
 export const ROUTES = {
   HOME: "/",
-  SERVICES: "/services",
+  SERVICES: "#services",
   CAREERS: "/careers",
   ABOUT: "/about",
   LETS_TALK: "#contact-form",
@@ -58,15 +58,15 @@ export const FOOTER_SECTIONS = [
 
 export const FOOTER_LOCATIONS = [
   {
-    location: "GERMANY",
+    location: "UNITED STATES",
     address: "Infomation technologies building, Kudus , Jawa tengah Indonesian",
-    phone: "+0923129442848",
+    phone: "+92 320 4487749",
     email: "arcompsol@gmail.com",
   },
   {
     location: "PAKISTAN",
-    address: "Infomation technologies building, Kudus , Jawa tengah Indonesian",
-    phone: "+0923129442848",
+    address: "305 GT road, Near Shalimar Garden, Cantt, Lahore",
+    phone: "+92 300 9442848",
     email: "arcompsol@gmail.com",
   },
 ];
@@ -119,6 +119,22 @@ export const VALUES = [
 
 export const BENEFITS = [
   {
+    benefit: "Bi-Annual Dinner", 
+    description: "Working day after day on projects In a remote environment can make you feel left out, but we at Arcompsol do plan bi-annual dinners for a refreshing eve with our colleagues.",
+  },
+  {
+    benefit: "Remote Work", 
+    description: "Work from the ease of your home, enjoy time with family, and avoid the hectic traffic.",
+  },
+  {
+    benefit: "Market Competitive Salaries", 
+    description: "With inflation sky-high these days, Arcompsol believes in keeping care of its employees by having market-competitive salaries.",
+  },
+  {
+    benefit: "Flexible Working hours", 
+    description: "Arcompsol understands the importance of family and the pleasure of working on your own time, and that it gives you the flexibility to enjoy with family more and more.",
+  },
+  {
     benefit: "Location",
     description:
       "We have a distributed team, with Cleta working across the country. Those located in the Bay Area love our sunny, beautiful SoMa office. In addition to catered lunches, our kitchen is perennially stocked with snacks and drinks. Special requests welcome!",
@@ -128,4 +144,5 @@ export const BENEFITS = [
     description:
       "* 100% employer-paid medical coverage and 99% employer-paid dental and vision coverage for you and all your dependents.FSAs available too.\n* $60 per month for however you prefer to stay in shape.",
   },
+  
 ];
