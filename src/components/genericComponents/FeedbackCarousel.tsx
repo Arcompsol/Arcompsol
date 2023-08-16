@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 import { WhiteLeftArrowIcon, RightArrowIcon } from "../icons/CarousalArrows";
 import Avatar from "@mui/material/Avatar";
+import Image from "next/image";
+import CLIENT from '../../assets/Lance_Kohler.jpeg'
 import VectorImg from "../../../public/images/vector.png";
 
 interface BlogPost {
@@ -83,7 +85,7 @@ const CardCarousel = styled(Card)(({ theme }) => ({
   borderRadius: "20px",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
+  justifyContent: "flex-start",
   gap: "10px",
   padding: "30px 21px",
 
@@ -170,6 +172,9 @@ const FeedbackCarousel = ({ carouselList }: CarouselProps) => {
 
   const items = carouselList.map((listItem, index) => {
     // Render two blog posts side by side
+
+    console.log("JEEJ",listItem);
+    
     const nextIndex = (index + 1) % carouselList.length;
     const nextListItem = carouselList[nextIndex];
     return (
@@ -177,7 +182,9 @@ const FeedbackCarousel = ({ carouselList }: CarouselProps) => {
         <BlogsCarousalCardWrapper>
           <CardCarousel>
             <ImageNameContainer>
-              <Avatar alt="Rounded Image" src={VectorImg.src}></Avatar>
+              <Avatar>
+                <Image alt="Client Image" src={listItem.avatar} fill/>
+              </Avatar>
               <Name>{listItem?.name}</Name>
             </ImageNameContainer>
             <Feedback>{listItem.text}</Feedback>
@@ -187,7 +194,10 @@ const FeedbackCarousel = ({ carouselList }: CarouselProps) => {
           {nextListItem && (
             <CardCarousel>
               <ImageNameContainer>
-                <Avatar alt="Rounded Image" src={VectorImg.src}></Avatar>
+                <Avatar>
+                <Image alt="Client Image" src={nextListItem?.avatar} fill/>
+
+                </Avatar>
                 <Name>{nextListItem?.name}</Name>
               </ImageNameContainer>
 

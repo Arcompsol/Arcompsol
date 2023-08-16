@@ -238,7 +238,7 @@ const HomePage = () => {
       </BlogsCarousalWrapper>
 
       <FeedbackCarousalWrapper>
-        <FeedbackTitle>Our Customer Feedback</FeedbackTitle>
+        <FeedbackTitle>Client Testimonials</FeedbackTitle>
         <FeedbackCarousel carouselList={FEEDBACK_LIST} />
       </FeedbackCarousalWrapper>
     </Fragment>
