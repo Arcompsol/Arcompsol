@@ -3,22 +3,22 @@ import { ReactElement } from "react";
 
 interface GenericWrapperProps {
   children: ReactElement;
-  backgroundColor: String;
+  backgroundcolor: String;
 }
 
 interface WrapperProps {
-  backgroundColor: String;
+  backgroundcolor: String;
 }
 
-const Wrapper = styled(Box)<WrapperProps>(({ theme, backgroundColor }) => ({
+const Wrapper = styled(Box)<WrapperProps>(({ theme, backgroundcolor }) => ({
   width: "100%",
   maxWidth: "1444px",
   margin: "0 auto",
-  background: `${backgroundColor}`,
+  background: `${backgroundcolor}`,
 }));
 
-const GenericWrapper = ({ children, backgroundColor }: GenericWrapperProps) => {
-  return <Wrapper backgroundColor={backgroundColor}>{children}</Wrapper>;
+const GenericWrapper = ({ children, backgroundcolor }: GenericWrapperProps) => {
+  return <Wrapper backgroundcolor={backgroundcolor}>{children}</Wrapper>;
 };
 
 export default GenericWrapper;

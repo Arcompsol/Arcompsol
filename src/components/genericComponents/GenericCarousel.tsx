@@ -24,15 +24,15 @@ interface CarouselProps {
 }
 
 interface IconButtonProps {
-  backgroundColor: string;
-  backgroundColorHover: string;
+  backgroundcolor: string;
+  backgroundcolorhover: string;
 }
 
 const CarousalArrowWrapper = styled(IconButton)<IconButtonProps>(
-  ({ backgroundColor, backgroundColorHover, theme }) => ({
-    backgroundColor: `${backgroundColor}`,
+  ({ backgroundcolor, backgroundcolorhover, theme }) => ({
+    backgroundcolor: `${backgroundcolor}`,
     "&:hover": {
-      backgroundColor: `${backgroundColorHover}`,
+      backgroundcolor: `${backgroundcolorhover}`,
     },
   })
 );
@@ -234,15 +234,15 @@ const GenericCarousel = ({ carouselList }: CarouselProps) => {
       </BlogsCarousal>
       <ArrowsWrapper>
         <CarousalArrowWrapper
-          backgroundColor="white"
-          backgroundColorHover="#f5f5f5"
+          backgroundcolor="white"
+          backgroundcolorhover="#f5f5f5"
           onClick={handlePrevClick}
         >
           <LeftArrowIcon />
         </CarousalArrowWrapper>
         <CarousalArrowWrapper
-          backgroundColor="#0395CE"
-          backgroundColorHover="#2196f3"
+          backgroundcolor="#0395CE"
+          backgroundcolorhover="#2196f3"
           onClick={handleNextClick}
         >
           <RightArrowIcon />

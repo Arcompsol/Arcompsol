@@ -273,13 +273,17 @@ const PrimaryFooter = () => {
           <UpperLeftContainer>
             <Title>Love to hear from you, Get in touch!</Title>
             <UpperLeftBottomContainer>
-              {FOOTER_LOCATIONS.map((location) => (
-                <LocationContainer key={`location-${location}`}>
+              {FOOTER_LOCATIONS.map((location, index) => (
+                <LocationContainer key={`location-${index}`}>
                   <LocationHeading>{location.location}</LocationHeading>
                   <LocationDetailsContainer>
                     <LocationDetailText>{location.address}</LocationDetailText>
-                    <LocationDetailText>{location.phone}</LocationDetailText>
-                    <LocationDetailText>{location.phone}</LocationDetailText>
+                    <LocationDetailText>{location?.phone}</LocationDetailText>
+                    {
+                      location?.phone2 && 
+                    <LocationDetailText>{location?.phone2}</LocationDetailText>
+
+                    }
                   </LocationDetailsContainer>
                 </LocationContainer>
               ))}

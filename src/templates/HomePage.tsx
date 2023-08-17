@@ -204,7 +204,7 @@ const HomePage = () => {
   return (
     <Fragment>
       <HomeHero />
-      <GenericWrapper backgroundColor={theme.palette.common.white}>
+      <GenericWrapper backgroundcolor={theme.palette.common.white}>
         <ServicesContainer id='services'>
           <ServicesTitle>Services we provide</ServicesTitle>
           <ServicesDescription>
@@ -229,7 +229,7 @@ const HomePage = () => {
       <MilestonesList
         titleColor={theme.palette.common.black}
         descColor={theme.palette.common.mortar}
-        backgroundColor={theme.palette.common.white}
+        backgroundcolor={theme.palette.common.white}
         circleColor={theme.palette.common.black}
       />
       {/* <BlogsCarousalWrapper>

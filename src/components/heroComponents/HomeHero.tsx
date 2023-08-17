@@ -86,7 +86,7 @@ const GetStartedButton = styled(Button)(({ theme }) => ({
 
 const HomeHero = () => {
   return (
-    <GenericWrapper backgroundColor={theme.palette.common.white}>
+    <GenericWrapper backgroundcolor={theme.palette.common.white}>
       <Container>
         <Title>Building products services & everything in between</Title>
         <Heading>Power Your Business </Heading>

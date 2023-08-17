@@ -6,17 +6,17 @@ import MilestoneFlag from "../icons/MilestoneFlag";
 interface MileStoneProps {
   titleColor: String;
   descColor: String;
-  backgroundColor: String;
+  backgroundcolor: String;
   circleColor: String;
 }
 
 interface ListComponentsProps {
-  isEven?: boolean;
-  milestoneColor?: String;
+  iseven?: String;
+  milestonecolor?: String;
 }
 
 interface ColorProps {
-  milestoneColor: String;
+  milestonecolor: String;
 }
 
 const Wrapper = styled(Box)(({ theme }) => ({
@@ -27,18 +27,18 @@ const Wrapper = styled(Box)(({ theme }) => ({
   position: "relative",
 }));
 
-const Title = styled(Typography)<ColorProps>(({ theme, milestoneColor }) => ({
+const Title = styled(Typography)<ColorProps>(({ theme, milestonecolor }) => ({
   fontSize: "40px",
   fontWeight: 700,
-  color: `${milestoneColor}`,
+  color: `${milestonecolor}`,
   margin: "0px auto 20px",
 }));
 
 const Description = styled(Typography)<ColorProps>(
-  ({ theme, milestoneColor }) => ({
+  ({ theme, milestonecolor }) => ({
     fontSize: "21px",
     fontWeight: 400,
-    color: `${milestoneColor}`,
+    color: `${milestonecolor}`,
     margin: "0px auto 76px",
     maxWidth: "1056px",
     textAlign: "center",
@@ -54,13 +54,13 @@ const ListWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const ListItemWrapper = styled(Box)<ListComponentsProps>(
-  ({ theme, isEven }) => ({
+  ({ theme, iseven }) => ({
     width: "100%",
     maxWidth: "1170px",
     display: "flex",
     gap: "51px",
     height: "250px",
-    flexDirection: isEven ? "row" : "row-reverse",
+    flexDirection: iseven ? "row" : "row-reverse",
 
     [theme.breakpoints.down("md")]: {
       flexDirection: "row-reverse",
@@ -71,12 +71,12 @@ const ListItemWrapper = styled(Box)<ListComponentsProps>(
 );
 
 const ListItemIntroContainer = styled(Box)<ListComponentsProps>(
-  ({ theme, isEven }) => ({
+  ({ theme, iseven }) => ({
     width: "calc(50% - 93px)",
     display: "flex",
     flexDirection: "column",
     gap: "8px",
-    alignItems: isEven ? "flex-end" : "flex-start",
+    alignItems: iseven ? "flex-end" : "flex-start",
 
     [theme.breakpoints.down("md")]: {
       width: "auto",
@@ -87,11 +87,11 @@ const ListItemIntroContainer = styled(Box)<ListComponentsProps>(
 );
 
 const ListItemHeading = styled(Typography)<ListComponentsProps>(
-  ({ theme, isEven, milestoneColor }) => ({
+  ({ theme, iseven, milestonecolor }) => ({
     fontSize: "22px",
     fontWeight: 700,
-    color: `${milestoneColor}`,
-    textAlign: isEven ? "right" : "left",
+    color: `${milestonecolor}`,
+    textAlign: iseven ? "right" : "left",
 
     [theme.breakpoints.down("md")]: {
       textAlign: "left",
@@ -100,11 +100,11 @@ const ListItemHeading = styled(Typography)<ListComponentsProps>(
 );
 
 const ListItemDescription = styled(Typography)<ListComponentsProps>(
-  ({ theme, isEven, milestoneColor }) => ({
+  ({ theme, iseven, milestonecolor }) => ({
     fontSize: "20px",
     fontWeight: 400,
-    color: `${milestoneColor}`,
-    textAlign: isEven ? "right" : "left",
+    color: `${milestonecolor}`,
+    textAlign: iseven ? "right" : "left",
 
     [theme.breakpoints.down("md")]: {
       textAlign: "left",
@@ -162,7 +162,7 @@ const LeftCircles = styled(CirclesSquare)(({ theme }) => ({
 const MilestonesList = ({
   titleColor,
   descColor,
-  backgroundColor,
+  backgroundcolor,
   circleColor,
 }: MileStoneProps) => {
   const MILESTONS = [
@@ -199,29 +199,29 @@ const MilestonesList = ({
   ];
 
   return (
-    <GenericWrapper backgroundColor={backgroundColor}>
+    <GenericWrapper backgroundcolor={backgroundcolor}>
       <Wrapper>
         <RightCircles circleColor={circleColor} />
         <LeftCircles />
-        <Title milestoneColor={titleColor}>How We Work?</Title>
-        <Description milestoneColor={descColor}>
+        <Title milestonecolor={titleColor}>How We Work?</Title>
+        <Description milestonecolor={descColor}>
           It’s simple: we love seeing your business grow. From planning and
           consulting to documentation and support, Grootan always keeps in close
           touch with our clients and keep them involved in the entire process.
         </Description>
         <ListWrapper>
           {MILESTONS.map((milestone, index) => {
-            const isEven = index % 2 === 0;
+            const iseven = index % 2 === 0;
             const isLast = index === MILESTONS.length - 1;
             return (
-              <ListItemWrapper isEven={isEven}>
-                <ListItemIntroContainer isEven={isEven}>
-                  <ListItemHeading isEven={isEven} milestoneColor={titleColor}>
+              <ListItemWrapper iseven={`${iseven}`} key={`milestone - ${index}`}>
+                <ListItemIntroContainer iseven={`${iseven}`}>
+                  <ListItemHeading iseven={`${iseven}`} milestonecolor={titleColor}>
                     {milestone.heading}
                   </ListItemHeading>
                   <ListItemDescription
-                    isEven={isEven}
-                    milestoneColor={descColor}
+                    iseven={`${iseven}`}
+                    milestonecolor={descColor}
                   >
                     {milestone.description}
                   </ListItemDescription>

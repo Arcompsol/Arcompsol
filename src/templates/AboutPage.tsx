@@ -103,15 +103,15 @@ const AboutPage = () => {
         <DescriptionBlue desc="Who we are is best described by what we value in our coworkers, and who we as individuals continually aspire to be. These personal attributes codify the most important traits we look for in future coworkers." />
 
         <QualitiesContainer>
-          {VALUES.map((value) => (
-            <GenericCard title={value.heading} content={value.description} />
+          {VALUES.map((value, index) => (
+            <GenericCard key={index} title={value.heading} content={value.description} />
           ))}
         </QualitiesContainer>
       </WhoWeAreContainer>
       <MilestonesList
         titleColor={theme.palette.common.white}
         descColor={theme.palette.common.dimWhite}
-        backgroundColor={theme.palette.common.prussianBlue}
+        backgroundcolor={theme.palette.common.prussianBlue}
         circleColor={theme.palette.common.white}
       />
     </>

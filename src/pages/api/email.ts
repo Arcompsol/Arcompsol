@@ -3,9 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { SMTPClient } from 'emailjs';
 
 
-type Data = {
-  message: string
-}
+
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,9 +11,10 @@ export default async function handler(
 ) {
   const {email, subject, body}=req.body;
   
+  
   const client = new SMTPClient({
-    user: 'arsxlanali@gmail.com',
-    password: 'wbvjcbpkzosehvlc',
+    user:  process.env.NEXT_APP_EMAIL,
+    password: process.env.NEXT_APP_PASSWORD,
     host: 'smtp.gmail.com',
     ssl:true
   });
@@ -23,10 +22,12 @@ export default async function handler(
   try {
    const res1 = await client.sendAsync({
       text: body,
-      from: 'arsxlanali@gmail.com',
-      to: email,
+      from:  process.env.NEXT_APP_EMAIL || '',
+      to: [ process.env.NEXT_APP_EMAIL,email],
       subject: subject,
     });
+
+    
 
     res.status(200).json({ message: res1});
   } catch (error) {

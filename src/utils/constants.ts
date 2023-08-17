@@ -59,14 +59,14 @@ export const FOOTER_SECTIONS = [
 export const FOOTER_LOCATIONS = [
   {
     location: "UNITED STATES",
-    address: "Infomation technologies building, Kudus , Jawa tengah Indonesian",
-    phone: "+92 320 4487749",
+    address: "Comming Soon!",
     email: "arcompsol@gmail.com",
   },
   {
     location: "PAKISTAN",
     address: "305 GT road, Near Shalimar Garden, Cantt, Lahore",
     phone: "+92 300 9442848",
+    phone2: "+92 320 4487749",
     email: "arcompsol@gmail.com",
   },
 ];

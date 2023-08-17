@@ -12,7 +12,7 @@ interface PrimaryLayoutProps {
 }
 
 interface TabProps {
-  isSelected: boolean;
+  isselected: string;
 }
 
 const Wrapper = styled(Box)(({ theme }) => ({
@@ -62,11 +62,11 @@ const LargeSrceenTabsContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const Tab = styled(Link)<TabProps>(({ theme, isSelected }) => ({
-  fontWeight: isSelected ? 600 : 500,
+const Tab = styled(Link)<TabProps>(({ theme, isselected }) => ({
+  fontWeight: isselected ? 600 : 500,
   fontSize: "16px",
   lineHeight: "24px",
-  color: isSelected
+  color: isselected
     ? theme.palette.common.blueWhale
     : theme.palette.common.dimGray,
   textDecoration: "none",
@@ -138,15 +138,20 @@ const PrimaryLayout = ({ children }: PrimaryLayoutProps) => {
         {TABS.map((tab) => {
           if (tab.route.startsWith('#')) {
             if(router.pathname === '/careers' && tab.route === '#services') {
-                  return <a href={tab.route} style={{textDecoration: 'none', color: '#656161', display: 'none'}}>{tab.label}</a>
+                  return <a 
+                  key={tab.route}
+                  href={tab.route} style={{textDecoration: 'none', fontWeight: '600', fontSize:'16px', color: '#1D2740', display: 'none'}}>{tab.label}</a>
             }
             return (
-              <a href={tab.route} style={{textDecoration: 'none', color: '#656161'}}>{tab.label}</a>
+                
+                <a 
+                key={tab.route} 
+                href={tab.route} style={{textDecoration: 'none', fontWeight: '600', fontSize:'16px', color: '#1D2740'}}>{tab.label}</a>
             );
           } else {
             return (
               <Tab
-                isSelected={router.pathname === tab.route}
+                isselected={`${router.pathname === tab.route}`}
                 key={tab.route}
                 href={tab.route}
               >

@@ -270,8 +270,9 @@ const CareerPage = () => {
 
         <DescriptionBlue desc="You should have three qualities" />
         <QualitiesContainer>
-          {QUALITIES.map((quality) => (
+          {QUALITIES.map((quality, index) => (
             <GenericCard
+              key={index}
               title={quality.heading}
               content={quality.description}
             />
@@ -286,18 +287,18 @@ const CareerPage = () => {
         <OpeningsTitle>Current Openings</OpeningsTitle>
         <OpeningsOuterWrappeer>
           <OpeningsWrappeer>
-            {CURRENT_OPENINGS.map((opening) => (
-              <SectionContainer key={`opening-${opening.heading}`}>
+            {CURRENT_OPENINGS.map((opening, index) => (
+              <SectionContainer key={`opening-${index}`}>
                 <TabHeading>{opening.heading}</TabHeading>
               </SectionContainer>
             ))}
           </OpeningsWrappeer>
           <OpeningsDivider />
           <OpeningsWrappeer>
-            {CURRENT_OPENINGS.map((opening) => (
-              <TabsContainer>
-                {opening.tabs.map((tab) => (
-                  <Tab key={`tab-${tab.label}`}>{tab.label}</Tab>
+            {CURRENT_OPENINGS.map((opening, index) => (
+              <TabsContainer key={index}>
+                {opening.tabs.map((tab, index) => (
+                  <Tab key={`tab-${index}`}>{tab.label}</Tab>
                 ))}
               </TabsContainer>
             ))}
