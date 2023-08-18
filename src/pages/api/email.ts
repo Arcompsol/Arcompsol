@@ -14,8 +14,8 @@ export default async function handler(
   
   
   const client = new SMTPClient({
-    user:  process.env.NEXT_APP_EMAIL,
-    password: process.env.NEXT_APP_PASSWORD,
+    user:  "support@arcompsol.com",
+    password: "helloesk",
     host: 'mail.privateemail.com',
     port: 465,
     ssl:true
@@ -26,8 +26,8 @@ export default async function handler(
     const response = await client.sendAsync({
       'content-type':  'text/html; charset=utf-8',
       text: getEmailContent(name, mobile, body),
-      from: process.env.NEXT_APP_EMAIL || '',
-      to: [process.env.NEXT_APP_EMAIL, email],
+      from: "support@arcompsol.com" || '',
+      to: ["support@arcompsol.com", email],
       subject: `${subject} - Contact Form Submission`,
     });
     
