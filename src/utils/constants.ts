@@ -146,3 +146,54 @@ export const BENEFITS = [
   },
   
 ];
+
+
+export const getEmailContent = (name: string, mobile: string, body: string) => {
+  return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333333;
+        }
+        p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        strong {
+            font-weight: bold;
+        }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+        <h3><strong>Name:</strong> ${name}</h3>
+        <h3><strong>Mobile:</strong> ${mobile}</h3>
+        
+        <h3>Message:</h3>
+        <p>${body}</p>
+        
+        <p>Thank you for your interest!</p>
+    </div>
+    </body>
+    </html>
+    `
+}

@@ -243,9 +243,10 @@ const SocialIconsContainer = styled(Box)(({ theme }) => ({
 const PrimaryFooter = () => {
 
   const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
   const [subject, setSubject] = useState('')
   const [body, setBody] = useState('')
-
+  const [mobile, setMobile] = useState('');
   const [disable , setDisable] = useState(false)
   const handleSend = async ()=>{
     
@@ -255,12 +256,20 @@ const PrimaryFooter = () => {
         email,
         subject,
         body,
+        name, 
+        mobile,
       })
       setDisable(false)
-      setEmail('')
-      setBody('')
-      setSubject('')
-      
+
+      alert("Email Send Successfully!")
+      // Clear the input fields after successful submission
+      setEmail('');
+      setName('');
+      setSubject('');
+      setBody('');
+      setMobile('');
+
+      return response;
     } catch (err) {
       setDisable(false)
       console.error(err)
@@ -290,13 +299,18 @@ const PrimaryFooter = () => {
             </UpperLeftBottomContainer>
           </UpperLeftContainer>
           <Form id="contact-form">
-            <InputField type={"text"} placeholder="Name" />
-            <InputField type={"email"} onChange={(e)=> setEmail(e.target.value)} placeholder="Email Address" />
-            <InputField type={"text"} placeholder="Mobile No" />
-            <InputField type={"text"} onChange={(e)=> setSubject(e.target.value)} placeholder="Why are you interested" />
+            <InputField value={name} type={"text"} 
+            onChange={(e)=> setName(e.target.value)} 
+            placeholder="Name" />
+            <InputField value={email} type={"email"} onChange={(e)=> setEmail(e.target.value)} placeholder="Email Address" />
+            <InputField type={"text"} value={mobile}
+            onChange={(e)=> setMobile(e.target.value)} 
+             placeholder="Mobile No" />
+            <InputField type={"text"} value={subject} onChange={(e)=> setSubject(e.target.value)} placeholder="Why are you interested" />
             <MultilineInput
               multiline
               rows={4}
+              value={body}
               onChange={(e)=> setBody(e.target.value)}
               placeholder="Let us know your project about!"
             />

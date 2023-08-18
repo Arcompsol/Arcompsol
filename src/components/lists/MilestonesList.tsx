@@ -11,7 +11,7 @@ interface MileStoneProps {
 }
 
 interface ListComponentsProps {
-  iseven?: String;
+  iseven?: string;
   milestonecolor?: String;
 }
 
@@ -60,7 +60,7 @@ const ListItemWrapper = styled(Box)<ListComponentsProps>(
     display: "flex",
     gap: "51px",
     height: "250px",
-    flexDirection: iseven ? "row" : "row-reverse",
+    flexDirection: iseven==="true" ? "row" : "row-reverse",
 
     [theme.breakpoints.down("md")]: {
       flexDirection: "row-reverse",
@@ -76,7 +76,7 @@ const ListItemIntroContainer = styled(Box)<ListComponentsProps>(
     display: "flex",
     flexDirection: "column",
     gap: "8px",
-    alignItems: iseven ? "flex-end" : "flex-start",
+    alignItems: iseven==="true" ? "flex-end" : "flex-start",
 
     [theme.breakpoints.down("md")]: {
       width: "auto",
@@ -91,7 +91,7 @@ const ListItemHeading = styled(Typography)<ListComponentsProps>(
     fontSize: "22px",
     fontWeight: 700,
     color: `${milestonecolor}`,
-    textAlign: iseven ? "right" : "left",
+    textAlign: iseven==="true" ? "right" : "left",
 
     [theme.breakpoints.down("md")]: {
       textAlign: "left",
@@ -104,7 +104,7 @@ const ListItemDescription = styled(Typography)<ListComponentsProps>(
     fontSize: "20px",
     fontWeight: 400,
     color: `${milestonecolor}`,
-    textAlign: iseven ? "right" : "left",
+    textAlign: iseven==="true" ? "right" : "left",
 
     [theme.breakpoints.down("md")]: {
       textAlign: "left",
@@ -214,7 +214,7 @@ const MilestonesList = ({
             const iseven = index % 2 === 0;
             const isLast = index === MILESTONS.length - 1;
             return (
-              <ListItemWrapper iseven={`${iseven}`} key={`milestone - ${index}`}>
+              <ListItemWrapper iseven={`${iseven}`} key={index}>
                 <ListItemIntroContainer iseven={`${iseven}`}>
                   <ListItemHeading iseven={`${iseven}`} milestonecolor={titleColor}>
                     {milestone.heading}

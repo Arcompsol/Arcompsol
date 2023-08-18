@@ -63,10 +63,10 @@ const LargeSrceenTabsContainer = styled(Box)(({ theme }) => ({
 }));
 
 const Tab = styled(Link)<TabProps>(({ theme, isselected }) => ({
-  fontWeight: isselected ? 600 : 500,
+  fontWeight: isselected==="true" ? 600 : 500,
   fontSize: "16px",
   lineHeight: "24px",
-  color: isselected
+  color: isselected==="true"
     ? theme.palette.common.blueWhale
     : theme.palette.common.dimGray,
   textDecoration: "none",
@@ -140,13 +140,13 @@ const PrimaryLayout = ({ children }: PrimaryLayoutProps) => {
             if(router.pathname === '/careers' && tab.route === '#services') {
                   return <a 
                   key={tab.route}
-                  href={tab.route} style={{textDecoration: 'none', fontWeight: '600', fontSize:'16px', color: '#1D2740', display: 'none'}}>{tab.label}</a>
+                  href={tab.route} style={{textDecoration: 'none', fontWeight: '500', fontSize:'16px', color: '#656161', display: 'none'}}>{tab.label}</a>
             }
             return (
                 
                 <a 
                 key={tab.route} 
-                href={tab.route} style={{textDecoration: 'none', fontWeight: '600', fontSize:'16px', color: '#1D2740'}}>{tab.label}</a>
+                href={tab.route} style={{textDecoration: 'none', fontWeight: '500', fontSize:'16px', color: '#656161'}}>{tab.label}</a>
             );
           } else {
             return (

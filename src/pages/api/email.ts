@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { getEmailContent } from '@/utils';
 import { SMTPClient } from 'emailjs';
 
 
@@ -9,27 +10,29 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  const {email, subject, body}=req.body;
+  const {email, subject, body, name, mobile}=req.body;
   
   
   const client = new SMTPClient({
     user:  process.env.NEXT_APP_EMAIL,
     password: process.env.NEXT_APP_PASSWORD,
-    host: 'smtp.gmail.com',
+    host: 'mail.privateemail.com',
+    port: 465,
     ssl:true
   });
   
   try {
-   const res1 = await client.sendAsync({
-      text: body,
-      from:  process.env.NEXT_APP_EMAIL || '',
-      to: [ process.env.NEXT_APP_EMAIL,email],
-      subject: subject,
+
+    const response = await client.sendAsync({
+      'content-type':  'text/html; charset=utf-8',
+      text: getEmailContent(name, mobile, body),
+      from: process.env.NEXT_APP_EMAIL || '',
+      to: [process.env.NEXT_APP_EMAIL, email],
+      subject: `${subject} - Contact Form Submission`,
     });
-
     
-
-    res.status(200).json({ message: res1});
+    
+    res.status(200).json({ message: response});
   } catch (error) {
     console.error('Error sending email:', error);
     res.status(500).json({ message: 'Error sending email' });
