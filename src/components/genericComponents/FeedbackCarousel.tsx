@@ -7,6 +7,7 @@ import {
   Box,
   Card,
   Button,
+  Link,
 } from "@mui/material";
 import { WhiteLeftArrowIcon, RightArrowIcon } from "../icons/CarousalArrows";
 import Avatar from "@mui/material/Avatar";
@@ -183,7 +184,16 @@ const FeedbackCarousel = ({ carouselList }: CarouselProps) => {
               <Avatar>
                 <Image alt="Client Image" src={listItem.avatar} fill/>
               </Avatar>
+              <Box>
+              <Link sx={{textDecoration: 'none'}} href={listItem?.social}>
+                
               <Name>{listItem?.name}</Name>
+              </Link>
+              <Link sx={{textDecoration: 'none', color: '#1b1b1c'}} href={listItem?.social}>
+
+              <Typography sx={{fontSize: "18px", fontWeight: '500'}}>{listItem?.organiztion}</Typography>
+              </Link>
+              </Box>
             </ImageNameContainer>
             <Feedback>{listItem.text}</Feedback>
           </CardCarousel>
@@ -196,7 +206,19 @@ const FeedbackCarousel = ({ carouselList }: CarouselProps) => {
                 <Image alt="Client Image" src={nextListItem?.avatar} fill/>
 
                 </Avatar>
-                <Name>{nextListItem?.name}</Name>
+                <Box >
+                  <Link sx={{textDecoration: 'none'}} href={listItem?.social}>
+                    <Name>{nextListItem?.name}</Name>
+                  </Link>
+                  <Link sx={{textDecoration: 'none' , color: '#1b1b1c'}} href={listItem?.social}>
+
+                  <Typography  sx={{fontSize: "18px", fontWeight: '500'}}>{listItem?.organiztion}</Typography>
+                  </Link>
+
+                </Box>
+
+
+
               </ImageNameContainer>
 
               <Feedback>{nextListItem.text}</Feedback>

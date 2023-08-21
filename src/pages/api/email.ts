@@ -28,6 +28,7 @@ export default async function handler(
       text: getEmailContent(name, mobile, body),
       from: "support@arcompsol.com" || '',
       to: ["support@arcompsol.com", email],
+      cc: ["salman.khan@arcompsol.com", "aanishamir@gmail.com"],
       subject: `${subject} - Contact Form Submission`,
     });
     
