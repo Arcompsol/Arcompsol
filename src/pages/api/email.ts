@@ -14,8 +14,8 @@ export default async function handler(
   
   
   const client = new SMTPClient({
-    user:  "support@arcompsol.com",
-    password: "helloesk",
+    user:  "salman.khan@arcompsol.com",
+    password: "arcompsol",
     host: 'mail.privateemail.com',
     port: 465,
     ssl:true

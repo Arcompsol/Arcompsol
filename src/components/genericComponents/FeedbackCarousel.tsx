@@ -207,12 +207,12 @@ const FeedbackCarousel = ({ carouselList }: CarouselProps) => {
 
                 </Avatar>
                 <Box >
-                  <Link sx={{textDecoration: 'none'}} href={listItem?.social}>
+                  <Link sx={{textDecoration: 'none'}} href={nextListItem?.social}>
                     <Name>{nextListItem?.name}</Name>
                   </Link>
-                  <Link sx={{textDecoration: 'none' , color: '#1b1b1c'}} href={listItem?.social}>
+                  <Link sx={{textDecoration: 'none' , color: '#1b1b1c'}} href={nextListItem?.social}>
 
-                  <Typography  sx={{fontSize: "18px", fontWeight: '500'}}>{listItem?.organiztion}</Typography>
+                  <Typography  sx={{fontSize: "18px", fontWeight: '500'}}>{nextListItem?.organiztion}</Typography>
                   </Link>
 
                 </Box>
